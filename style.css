@@ -1,0 +1,110 @@
+* {
+    padding: 0;
+    margin: 0;
+    --transition-time: .8s;
+}
+
+body {
+    background-color: #adada7;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+.wrapper {
+    margin: auto;
+    width: 50%;
+}
+
+.mems_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.mems_item {
+    width: 100%;
+    border-top: 1px solid;
+    /*height: 3em;*/
+}
+
+.mem {
+    margin: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-time);
+    width: 100%;
+    display: flex;
+}
+
+.checkbox:checked~.mem {
+    max-height: 100vh;
+    padding: 1em;
+}
+
+.checkbox {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.checkbox:checked+.mem_label {
+    color: black;
+}
+
+.checkbox:checked+.mem_label::after {
+    transform: rotate(45deg);
+}
+
+.mem_label {
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    transition: all var(--transition-time);
+    color: blue;
+    align-items: center;
+    padding-bottom: .8em;
+    padding-top: .8em;
+}
+
+.mem_label::after {
+    content: url(img/plus-solid.svg);
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    transition: all var(--transition-time);
+    background-color: transparent;
+    opacity: 0;
+}
+
+.mem-img {
+    max-height: 20em;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+.footer {
+    height: 20em;
+}
+
+@media (hover: hover) {
+    .mems_item:hover .mem {
+        max-height: 100vh;
+        padding: 1em;
+    }
+    .mems_item:hover .mem_label::after {
+        transform: rotate(45deg);
+    }
+    .mems_list:hover .mem_label::after {
+        opacity: 100;
+        color: black;
+    }
+    .mems_list:hover .mem_label {
+        color: black;
+    }
+}
