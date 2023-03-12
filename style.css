@@ -38,9 +38,10 @@ body {
     transition: all var(--transition-time);
     width: 100%;
     display: flex;
+    cursor: pointer;
 }
 
-.radio:checked~.mem {
+.radio:checked+.mem_label .mem {
     max-height: 100vh;
     padding: 1em;
 }
@@ -51,15 +52,15 @@ body {
     position: absolute;
 }
 
-.radio:checked+.mem_label {
+.radio:checked+.mem_label .mem_header {
     color: black;
 }
 
-.radio:checked+.mem_label::after {
+.radio:checked+.mem_label .mem_header::after {
     transform: rotate(45deg);
 }
 
-.mem_label {
+.mem_header {
     cursor: pointer;
     display: flex;
     font-weight: bold;
@@ -71,14 +72,13 @@ body {
     padding-top: .8em;
 }
 
-.mem_label::after {
+.mem_header::after {
     content: url(img/plus-solid.svg);
     width: 2em;
     height: 2em;
     text-align: center;
     transition: all var(--transition-time);
     background-color: transparent;
-    opacity: 0;
 }
 
 .mem-img {
@@ -96,14 +96,14 @@ body {
         max-height: 100vh;
         padding: 1em;
     }
-    .mems_item:hover .mem_label::after {
+    .mems_item:hover .mem_header::after {
         transform: rotate(45deg);
     }
-    .mems_list:hover .mem_label::after {
+    .mems_list:hover .mem_header::after {
         opacity: 100;
         color: black;
     }
-    .mems_list:hover .mem_label {
+    .mems_list:hover .mem_header {
         color: black;
     }
 }
