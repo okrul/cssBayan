@@ -29,7 +29,6 @@ body {
 .mems_item {
     width: 100%;
     border-top: 1px solid;
-    /*height: 3em;*/
 }
 
 .mem {
@@ -41,22 +40,22 @@ body {
     display: flex;
 }
 
-.checkbox:checked~.mem {
+.radio:checked~.mem {
     max-height: 100vh;
     padding: 1em;
 }
 
-.checkbox {
+.radio {
     opacity: 0;
     cursor: pointer;
     position: absolute;
 }
 
-.checkbox:checked+.mem_label {
+.radio:checked+.mem_label {
     color: black;
 }
 
-.checkbox:checked+.mem_label::after {
+.radio:checked+.mem_label::after {
     transform: rotate(45deg);
 }
 
